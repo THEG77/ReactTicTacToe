@@ -34,7 +34,8 @@ function MainGame() {
         let tempcurletter = curLetter;
         setCurLetter('');
         let isFound = false;
-        for(let i =0; i<guessWord.length; i++){
+        //1 and -1 to ignore the first and the last character that we're using for hints
+        for(let i =1; i<guessWord.length-1; i++){
             tempcurletter = tempcurletter.toLowerCase();
             if(guessWord.charAt(i) === tempcurletter){
                 
@@ -54,13 +55,9 @@ function MainGame() {
             setLivesCounter(oldlives=> oldlives-=1)
         }
     }
-    function wordScores() {
-        return(
-                <text style={{fontSize: 25, fontWeight: 'bold',letterSpacing: 20}}>{curGuessedWord}</text>
-            )
-        }
+    
     const getaword = () => {
-        // Returns a random integer from 0 to 9:
+        // Returns a random word from the word array
         return words[Math.floor(Math.random() * words.length)];
     } 
     const handleKeypress = e => {
@@ -68,21 +65,18 @@ function MainGame() {
             handleInput();}
         };
     const [curLetter, setCurLetter] = useState('');
-    const words = ['honeybee', 'watermelon', 'python', 'sunflower','aptitude', 'sdpadiya', 'stranger','banana','orange'];
+    const words = ['honeybee', 'watermelon', 'python', 'sunflower','sugarcane', 'pineapple', 'mango','banana','orange','grape','coconut'];
     const [guessWord, setGuessWord] = useState(getaword);
     const [curGuessedWord, setCurGuessedWord] = useState();
     const [curGuesedIndex, setCurGuessedIndex] = useState([]);
     const [livesCounter, setLivesCounter] = useState(6);
     useEffect(()=>{
-        
         setCurGuessedWordfunc();
-        //Setting up  an array
     },[]);
     useEffect(()=>{
         // alert(curGuessedWord)    
-        //Setting up  an array
-        setCurGuessedWordfunc();
-        
+
+        setCurGuessedWordfunc();        
         setLivesCounter(6);
         const arr = [];
         setCurGuessedIndex(arr);
@@ -90,13 +84,13 @@ function MainGame() {
 
     useEffect(()=>{
         if(curGuesedIndex.length>=guessWord.length-2){
-            alert("You Won!")
+            alert("You Won!\n Restarting in 3 Secs...")
             setTimeout(() => {
                 refreshHandler();
             }, 3000);
         }
         if(livesCounter<=0){
-            alert("You Lost")
+            alert(`You Lost!\nThe words was ${guessWord} \n Restarting in 3 Secs...`)
             setTimeout(() => {
                 refreshHandler();
             }, 3000);
