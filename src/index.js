@@ -4,6 +4,8 @@ import { BrowserRouter } from "react-router-dom";
 import './index.css';
 import App from './App';
 import Game from './Game'
+import Ttt from './tictactoe'
+
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
@@ -11,6 +13,7 @@ ReactDOM.render(
     <BrowserRouter>
     {/* <App /> */}
     <Game />
+    {/* <Ttt /> */}
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')

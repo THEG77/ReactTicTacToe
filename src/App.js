@@ -1,12 +1,15 @@
 import './App.css';
 import game from  './Game';
-import { useNavigate } from "react-router-dom";
+import { Router, useNavigate } from "react-router-dom";
 function App() {
   function goto() {
     let path = `./Game`; 
     navigate(path);
   }
   let navigate = useNavigate();
+  <Router>
+    navigat
+  </Router>
   return (
     <div className="App">
       <header></header>

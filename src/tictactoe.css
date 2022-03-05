@@ -1,0 +1,13 @@
+.maindiv {
+
+}
+.mainboxcollection{
+/* display: flex; */
+background-color: yellow;
+}
+.firstbox{
+width: 50%;
+height: 50rm;
+background-color: green;
+
+}
