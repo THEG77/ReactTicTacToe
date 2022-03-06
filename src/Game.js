@@ -4,12 +4,12 @@ import styled from "styled-components";
 import {useState,useEffect} from 'react';
 
 
-function setCharAt(str,index,chr) {
-    if(index > str.length-1) return str;
-    return str.substring(0,index) + chr + str.substring(index+1);
-}
 
 function MainGame() {
+    function setCharAt(str,index,chr) {
+        if(index > str.length-1) return str;
+        return str.substring(0,index) + chr + str.substring(index+1);
+    }
     const refreshHandler = () => {
         setGuessWord(getaword);
         
@@ -17,7 +17,7 @@ function MainGame() {
     function setCurGuessedWordfunc () {
             let tempstr = '';
             for(let index = 0; index < guessWord.length; index++){
-                if(index == 0){
+                if(index === 0){
                     tempstr+=guessWord.charAt(index);
                 }
                 else if(index == guessWord.length-1){

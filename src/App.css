@@ -4,7 +4,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  height: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,7 +24,7 @@
   width: 100px;
   height: 40px;
   border-radius: 40px;
-  margin-bottom: 100%;
+  margin-bottom: 500px;
 }
 .main-div {
   flex-direction: column;

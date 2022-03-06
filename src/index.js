@@ -1,20 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 import './index.css';
 import App from './App';
 import Game from './Game'
 import Ttt from './tictactoe'
 
 import reportWebVitals from './reportWebVitals';
-
+const check = true;
 ReactDOM.render(
   <React.StrictMode>
+    {/* <div>
     <BrowserRouter>
-    {/* <App /> */}
-    <Game />
-    {/* <Ttt /> */}
+    <Route path="/"  component={App} exact />
+    <Route path="/hman" component={Game}/>
+    <Route path="/ttt" component={Ttt}/>
     </BrowserRouter>
+    </div > */}
+    {/* <App/> */}
+    {/* <Ttt/> */}
+    <Game/>
   </React.StrictMode>,
   document.getElementById('root')
 );

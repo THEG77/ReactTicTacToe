@@ -1,28 +1,34 @@
+import { BrowserRouter, Route, Link, useHref } from 'react-router-dom';
 import './App.css';
-import game from  './Game';
-import { Router, useNavigate } from "react-router-dom";
+import MainGame from  './Game';
+import TttGame from './tictactoe';
+
 function App() {
-  function goto() {
-    let path = `./Game`; 
-    navigate(path);
+  function ttt(){
+    return(
+      <TttGame/>
+    )
   }
-  let navigate = useNavigate();
-  <Router>
-    navigat
-  </Router>
+  function Game(){
+    return(
+        <MainGame/>
+    )
+  }
+    
   return (
     <div className="App">
       <header></header>
-      <body className='App-body'>
+      <div className='App-body'> 
         <div className='main-div'>
         <text style={{"font-size": 40, "font-weigh": "bold"}}>H-Man</text>
         <p></p>
           <input className='main-namebox' placeholder='Enter Your Name' type={'text'}></input>
           <p></p>
-          <button className='main-button' onClick={goto}  >Enter</button>
+          <button className='main-button' onClick={()=> ttt()}>Enter</button>
+          <button className='main-button'  onClick={()=> Game()} >Enter</button>
         </div>
       
-      </body>
+      </div>
     </div>
   );
 }
