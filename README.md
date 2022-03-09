@@ -1,5 +1,6 @@
 # Hangman
- This is a word guessing puzzle made with React.js
+ This is TicTacToe made with React.js
+ ⚠Spaghetti Code Ahead⚠
 ## Available online
  Goto https://h-man-with-react.herokuapp.com/ to play it
 
@@ -9,5 +10,5 @@
  * Run `npm start`
  
 ### Preview
-![image](https://user-images.githubusercontent.com/48765068/156938295-0a706823-e37a-41e3-a3e0-00bf8ea2c69d.png)
+![image](https://user-images.githubusercontent.com/48765068/157498578-42a085bb-af65-4f2c-9557-5b289b3dd268.png)
 
