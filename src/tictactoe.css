@@ -39,7 +39,7 @@ padding: 5%;
     height:50%;
 }
 .box0{
-width: 50%;
+width: 40%;
 height: 50%;
 /* background-color: green;  */
 border-top: 0px;
@@ -51,7 +51,7 @@ border-style: solid;
 
 }
 .box1{
-width: 50%;
+width: 40%;
 height: 50%;
 /* background-color: green; */
 border-top: 0px;
@@ -62,7 +62,7 @@ border-color: blue;
 border-style: solid;
 }
 .box2{
-width: 50%;
+width: 40%;
 height: 50%;
 /* background-color: green; */
 border-top: 0px;
@@ -73,7 +73,7 @@ border-color: blue;
 border-style: solid;
 }
 .box3{
-width: 50%;
+width: 40%;
 height: 50%;
 /* background-color: green; */
 border-top: 0px;
@@ -84,7 +84,7 @@ border-color: blue;
 border-style: solid;
 }
 .box4{
-width: 50%;
+width: 40%;
 height: 50%;
 /* background-color: green; */
 border-top: 0px;
@@ -95,7 +95,7 @@ border-color: blue;
 border-style: solid;
 }
 .box5{
-width: 50%;
+width: 40%;
 height: 50%;
 /* background-color: green; */
 border-top: 0px;
@@ -106,7 +106,7 @@ border-color: blue;
 border-style: solid;
 }
 .box6{
-width: 50%;
+width: 40%;
 height: 50%;
 /* background-color: green; */
 border-top: 0px;
@@ -117,7 +117,8 @@ border-color: blue;
 border-style: solid;
 }
 .box7{
-width: 50%;
+width: 40%;
+min-width: fit-content;
 height: 50%;
 /* background-color: green; */
 border-top: 0px;
@@ -128,7 +129,7 @@ border-color: blue;
 border-style: solid;
 }
 .box8{
-width: 50%;
+width: 40%;
 height: 50%;
 /* background-color: green; */
 border-top: 0px;
@@ -140,6 +141,7 @@ border-style: solid;
 }
 .boxtext{
     font-size: 100px;
+    /* color: beige; */
     /* text-decoration: line-through; */
     /* background-color: red; */
 }
@@ -148,12 +150,12 @@ border-style: solid;
     cursor: grab;
 }
 .line {
-    width: 50%;
+    width: 60vh;
     /* height: 10px; */
     border-top-left-radius : 1000px;
     border-bottom-left-radius : 1000px;
     border-top-right-radius : 1000px;
     border-bottom-right-radius : 1000px;
-    border-bottom: 10px solid black;
+    border-bottom: 10px solid red;
     position: absolute;
 }

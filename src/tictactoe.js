@@ -4,6 +4,7 @@ import {useState,useEffect} from 'react';
 
 
 function TttGame() {
+
     let initarr = new Array(9).fill(2);
     // let initarr = [2,2,3,2,5,2,3,5,3] 
     let initchararr = new Array(9).fill('_');
@@ -14,8 +15,9 @@ function TttGame() {
     const [turnCounter, setTurnCounter] = useState(0);
     const [possWinArrX, setPossWinArrX] = useState(initpossarr)
     const [someoneWonMatrix, setSomeOneWonMatrix] = useState(-1);
+    const [threeIndex, setThreeIndex] = useState([])
     // const [userTurn, setUserTurn] = useState(true);
-
+    
     function AiPlay() {
         console.log(turnCounter)
         if(turnCounter === 1){
@@ -35,9 +37,10 @@ function TttGame() {
                     return
                 }
             }
-            const ogarr = [...curValues]
-            ogarr[8] = 5
-            setCurValues(ogarr)            
+            // const ogarr = [...curValues]
+            // ogarr[8] = 5
+            // setCurValues(ogarr)    
+            updateCurArr(8,5)        
         }
         if(turnCounter === 5){
             for(let i = 0; i<possWinArrX.length; i++){
@@ -47,10 +50,11 @@ function TttGame() {
                     updateCurArr(indextogo,5)
                     return
                 }
-            }
-            const ogarr = [...curValues]
-            ogarr[7] = 5
-            setCurValues(ogarr)            
+            }   
+            // const ogarr = [...curValues]
+            // ogarr[7] = 5
+            // setCurValues(ogarr)
+            updateCurArr(7,5)         
         }
         if(turnCounter === 7){
             for(let i = 0; i<possWinArrX.length; i++){
@@ -61,9 +65,10 @@ function TttGame() {
                     return
                 }
             }
-            const ogarr = [...curValues]
-            ogarr[2] = 5
-            setCurValues(ogarr)            
+            // const ogarr = [...curValues]
+            // ogarr[2] = 5
+            // setCurValues(ogarr)
+            updateCurArr(2,5)         
         }
         if(turnCounter === 9){
             for(let i = 0; i<possWinArrX.length; i++){
@@ -74,10 +79,25 @@ function TttGame() {
                     return
                 }
             }
-            const ogarr = [...curValues]
-            ogarr[2] = 5
-            setCurValues(ogarr)            
+            // const ogarr = [...curValues]
+            // ogarr[4] = 5
+            // setCurValues(ogarr)
+            updateCurArr(4,5)           
         }
+    }
+    const findRandomEmptyIndex = () => {
+        for(let  i = 0; i<curValues.length; i++){
+            if(curValues[i] === 2){
+                return i;
+            }
+        }
+        return -1;
+    }
+    function updateTurnCounter() {
+        if(someoneWonMatrix === -1){
+            setTurnCounter(old=> old+1);
+        }
+        
     }
     function updateCurArr(indextoupdate, elementtoinsert){
         if(curValues[indextoupdate] === 2){
@@ -85,13 +105,17 @@ function TttGame() {
             ogarr[indextoupdate] = elementtoinsert
             setCurValues(ogarr)
             // console.log(ogarr)
-            setTurnCounter(old=> old+1);
+            
         }
         else{
-            console.log("index already taken");
+            console.log("index already taken... going for random place");
+            const ogarr = [...curValues]
+            ogarr[findRandomEmptyIndex()] = elementtoinsert
+            setCurValues(ogarr)
         }
-        
-
+        if(someoneWonMatrix === -1){
+            updateTurnCounter()
+        }
         // setUserTurn(false);
         // setCurCharValue(old => [...old, ogarr])
         // return ogarr;
@@ -122,9 +146,62 @@ function TttGame() {
     function handleRefresh(){
         setCurValues(initarr)
         setCurCharValues(initchararr)
-        updateCurChar()
+        setPossWinArrX(initpossarr)
+        setSomeOneWonMatrix(-1)
+        setThreeIndex([])
+        setTurnCounter(0)
     }
-    const updateWinChars = (x,y,z) => {
+    function UpdateWinIndex(x,y,z){
+        const ogarr = [...curCharValues]
+        ogarr[0] = x
+        ogarr[1] = y
+        ogarr[2] = z
+        setThreeIndex(ogarr)
+    }
+    const UpdateWinChars = () => {
+        console.log(" matrix "+someoneWonMatrix)
+        const marginVals = [460,175,-130]
+        if(someoneWonMatrix === 0){
+            return( 
+                <div className='line' style={{marginBottom: marginVals[someoneWonMatrix]}} ></div>
+            )
+        }
+        else if(someoneWonMatrix === 1){
+            return( 
+                <div className='line' style={{marginBottom: marginVals[someoneWonMatrix]}} ></div>
+            )
+        }
+        else if(someoneWonMatrix === 2){
+            return( 
+                <div className='line' style={{marginBottom: marginVals[someoneWonMatrix]}} ></div>
+            )
+        }
+        else if(someoneWonMatrix === 3){
+            return( 
+                <div className='line' style={{transform: "rotate(90deg)",  marginRight: 235, marginBottom: 130}} ></div>
+            )
+        }
+        else if(someoneWonMatrix === 4){
+            return( 
+                <div className='line' style={{transform: "rotate(90deg)",  marginBottom: 130}} ></div>
+            )
+        }
+        else if(someoneWonMatrix === 5){
+            return( 
+                <div className='line' style={{transform: "rotate(90deg)",  marginLeft: 235, marginBottom: 130}} ></div>
+            )
+        }
+        else if(someoneWonMatrix === 6){
+            return( 
+                <div className='line' style={{transform: "rotate(45deg)", marginBottom: 160}} ></div>
+            )
+        }
+        else if(someoneWonMatrix === 7){
+            return( 
+                <div className='line' style={{transform: "rotate(125deg)", marginBottom: 160}} ></div>
+            )
+        }
+        // setCurValues(ogarr)
         // const ogarr = [...curCharValues]
         // ogarr[indextoupdate] = elementtoinsert
         // setCurValues(ogarr)
@@ -133,40 +210,44 @@ function TttGame() {
     const checkIfWon = () => { 
         console.log(possWinArrX) 
         for(let i = 0; i<possWinArrX.length; i++){
-            console.log("AYOO "+ possWinArrX[i]) 
             if(possWinArrX[i] === 125 || possWinArrX[i] === 27){
-                setSomeOneWonMatrix(i)
-                console.log("BRORRRRRRR")
                 // console.log("Someone Won: " +   someoneWonMatrix)
                 if(i === 0){
-                    updateWinChars(0,1,2)
+                    UpdateWinIndex(0,1,2)
                 }
                 else if(i === 1){
-                    updateWinChars(3,4,5)
+                    UpdateWinIndex(3,4,5)
                 }
                 else if(i === 2){
-                    updateWinChars(6,7,8)
+                    UpdateWinIndex(6,7,8)
                 }
                 else if(i === 3){
-                    updateWinChars(0,2,6)
+                    UpdateWinIndex(0,3,6)
                 }
                 else if(i === 4){
-                    updateWinChars(1,4,7)
+                    UpdateWinIndex(1,4,7)
                 }
                 else if(i === 5){
-                    updateWinChars(2,5,8)
+                    UpdateWinIndex(2,5,8)
                 }
                 else if(i === 6){
-                    updateWinChars(0,4,8)
+                    UpdateWinIndex(0,4,8)
                 }
                 else if(i === 7){
-                    updateWinChars(2,4,6)
+                    UpdateWinIndex(2,4,6)
                 }
                 
+                if(possWinArrX[i] === 125){
+                alert("You LOST")
+                }
+                if(possWinArrX[i] === 27){
+                alert("You WON")
+                }
+                setSomeOneWonMatrix(i)
                 return i;
             }
-            return -1;
         }
+        return -1
     }
     function calcPossWinX(){
         let tempar = possWinArrX;
@@ -277,18 +358,29 @@ function TttGame() {
         }
     }
     useEffect(()=>{
-        updateCurChar()
+        updateCurChar();
+        console.log(curValues)
+        calcPossWinX();
+        checkIfWon();
+        if(turnCounter>=9 && someoneWonMatrix === -1){
+            alert("Its a Tie");
+            handleRefresh()
+
+        }
         
-        checkIfWon()    
     },[curValues]);
 
+  
     useEffect(()=>{
-        calcPossWinX()
-        if(turnCounter%2 != 0){
+        UpdateWinChars()
+    },[threeIndex]); 
+    
+    useEffect(()=>{
+        if(turnCounter%2 !== 0 && turnCounter<10 && someoneWonMatrix === -1 && checkIfWon() === -1){
             AiPlay()
         }
     },[turnCounter]); 
-
+    
     useEffect(()=>{
         setCurValues(initarr)
         setCurCharValues(initchararr)
@@ -323,7 +415,8 @@ function TttGame() {
                 <div className='box8' onClick={()=>handleBoxClick(8)}>
                     <text className='boxtext'>{curCharValues[8]}</text></div>
             </div>
-            {someoneWonMatrix!=-1 ? <div className='line' ></div> : null  }
+            {UpdateWinChars()}
+            {/* {someoneWonMatrix!=-1 ? <div className='line' ></div> : null  } */}
             <Button type='submit' onClick={()=>handleRefresh()}  >
                    <text style={{ fontWeight: 'bold' }} >Refresh</text>
                </Button>

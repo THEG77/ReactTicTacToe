@@ -18,8 +18,8 @@ ReactDOM.render(
     </BrowserRouter>
     </div > */}
     {/* <App/> */}
-    {/* <Ttt/> */}
-    <Game/>
+    <Ttt/>
+    {/* <Game/> */}
   </React.StrictMode>,
   document.getElementById('root')
 );
