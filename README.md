@@ -1,8 +1,9 @@
 # Hangman
  This is TicTacToe made with React.js
+ 
  ⚠Spaghetti Code Ahead⚠
 ## Available online
- Goto https://h-man-with-react.herokuapp.com/ to play it
+ Goto https://tictactoe-with-react.herokuapp.com/ to play it
 
 ## Run it locally
  * Download or Clone the repo
