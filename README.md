@@ -1,4 +1,4 @@
-# Hangman
+# TicTacToe
  This is TicTacToe made with React.js
  
  ⚠Spaghetti Code Ahead⚠
