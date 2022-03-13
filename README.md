@@ -4,6 +4,8 @@
  ⚠Spaghetti Code Ahead⚠
 ## Available online
  Goto https://tictactoe-with-react.herokuapp.com/ to play it
+ 
+ (May take a minute for heroku to wake up and load the page)
 
 ## Run it locally
  * Download or Clone the repo
